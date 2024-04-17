@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spreuken</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="lichtkrant">Lichtkrant</h1>
+    <!-- pop up met info -->
+    <div id="popUp">
+      <button @click="showPopup">&#128712;</button>
+      <div v-if="popupVisible" class="popup">
+        <div class="popup-content">
+          <span class="close" @click="hidePopup">&times;</span>
+          <p>
+            Kies uit een bestaande spreuk of voeg er zelf een toe door op het
+            kruisje onderaan de pagina te klikken!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="spreuk">
+      <div
+        class="boxes"
+        v-for="(text, index) in boxTexts"
+        :key="index"
+        @click="confirmBoxRemoval(index)"
+      >
+        {{ text }}
+      </div>
+      <!-- willen we dingen kunnen toevoegen? of uit een paar kunne nkiezen -->
+      <div class="plusBox" @click="addNewBox">+</div>
+      <div class="terugButton" @click="navigeerNaarStart">TERUG</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tekst invoeren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="lichtkrant">Lichtkrant</h1>
+    <!-- pop up met info -->
+    <div id="popUp">
+      <button @click="showPopup">&#128712;</button>
+      <div v-if="popupVisible" class="popup">
+        <div class="popup-content">
+          <span class="close" @click="hidePopup">&times;</span>
+          <p>
+            Voer zelf een tekst in en kies een kleur! De default kleur is rood.
+            Klik op submit zodra je klaar bent.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- New input fields -->
+    <!-- <div id="tekst">
+      <input type="text" v-model="input1" placeholder="Voer een tekst in." />
+      <select v-model="selectedColor" @change="colorChanged">
+        <option value="">Kies een kleur</option>
+        <option v-for="color in colors" :key="color" :value="color">
+          {{ color }}
+        </option>
+      </select>
+      <button @click="submitText">Submit</button>
+      <div class="terugButton" @click="navigeerNaarStart">TERUG</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script> -->
+
+    <!-- teksten en spreuken kleuren. -->
+    <div id="tekst">
+      <form @submit.prevent="submitForm">
+        <input type="text" v-model="input1" placeholder="Enter Text" />
+        <select v-model="selectedColor">
+          <option value="red">Rood</option>
+          <option value="green">Groen</option>
+          <option value="blue">Blauw</option>
+          <!-- Add more color options as needed -->
+        </select>
+        <button type="submit">Submit</button>
+        <div class="terugButton" @click="navigeerNaarStart">TERUG</div>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
